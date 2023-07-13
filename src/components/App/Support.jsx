@@ -13,8 +13,9 @@ function Support() {
 
 
     function handleSubmit(event) {
-        dispatch({type:'SET_SUPPORT', payload:event.target.parentElement.querySelector('input').value})
-        console.log(event.target.parentElement.querySelector('input').value)
+        dispatch({type:'SET_SUPPORT', payload:event.target.parentElement.parentElement.querySelector('input').value})
+        console.log(event.target.parentElement.parentElement.querySelector('input').value)
+        event.target.parentElement.parentElement.querySelector('input').value = ''
     }
 
   return (
@@ -22,7 +23,7 @@ function Support() {
       <h1>How do you feel you are being supported in the course?</h1>
       <p>Level of Support?</p>
       <input type="number" ></input>
-      <button onClick={handleSubmit}>Click</button>
+      <button onClick={handleSubmit}><Link to="/comment">Click</Link></button>
       <br></br>
       <button><Link to="/comment">Next</Link></button>
       <button><Link to="/understanding">Last</Link></button>

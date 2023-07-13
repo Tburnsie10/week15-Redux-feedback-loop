@@ -12,9 +12,10 @@ function Understanding() {
   function handleSubmit(event) {
     dispatch({
       type: "SET_SUPPORT",
-      payload: event.target.parentElement.querySelector("input").value,
+      payload: event.target.parentElement.parentElement.querySelector("input").value,
     });
-    console.log(event.target.parentElement.querySelector("input").value);
+    console.log(event.target.parentElement.parentElement.querySelector("input").value);
+    event.target.parentElement.parentElement.querySelector('input').value = ''
   }
 
   return (
@@ -22,7 +23,7 @@ function Understanding() {
       <h1>How are you understanding the material?</h1>
       <p>Understanding?</p>
       <input type="number"></input>
-      <button onClick={handleSubmit}>Click</button>
+      <button onClick={handleSubmit}><Link to="/support">Click</Link></button>
       <br></br>
       <button>
         <Link to="/support">Next</Link>

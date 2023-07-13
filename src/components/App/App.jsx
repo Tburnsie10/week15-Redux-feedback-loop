@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import "./App.css";
+import Admin from "./Admin";
+import Thanks from "./Thanks";
 import Feeling from "./Feeling";
 import Support from "./Support";
 import Comment from "./Comment";
@@ -18,8 +20,14 @@ function App() {
           <header className="App-header">
             <h1 className="App-title">Feedback!</h1>
             <h4>Don't forget it!</h4>
-            
-          </header>
+            <button><Link to="/admin">Admin</Link></button>
+          </header >
+          <Route path="/thanks">
+            <Thanks></Thanks>
+          </Route>
+          <Route path="/admin">
+            <Admin></Admin>
+          </Route>
           <Route path="/" exact>
             <button><Link to="/feelings">Give Feedback</Link></button>
           </Route>

@@ -10,6 +10,13 @@ import { useSelector, useDispatch } from 'react-redux';
 function Review() {
 
     let store = useSelector((store) => store)
+    let handleSubmit = (event) => {
+      axios.post('/feedback', store)
+      .then(response => {console.log(response)})
+      .then(error => {console.log(error)})
+
+      console.log(store)
+    }
 
   return (
     <div className='App'>
@@ -23,7 +30,8 @@ function Review() {
       <p>Comment</p>
       <p>{store.comment}</p>
 
-      
+      <button onClick={handleSubmit}><Link to="/thanks">Submit</Link></button>
+      <br></br>
       <button><Link to="/">Restart</Link></button>
     </div>
   );
